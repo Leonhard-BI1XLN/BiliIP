@@ -1,0 +1,272 @@
+[data-bce-localized-ui="true"] {
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+  font-kerning: normal;
+}
+
+.bce-comment-meta,
+.bce-message-meta {
+  --bce-meta-fg: #61666d;
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 10px;
+  row-gap: 3px;
+  width: 100%;
+  margin: 6px 0 0 !important;
+  padding: 0 !important;
+  color: var(--bce-meta-fg) !important;
+  font: 400 12px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+}
+
+.bce-meta-item {
+  display: inline;
+  color: inherit !important;
+  white-space: nowrap;
+}
+
+/* Message-centre cards often apply a one-line ellipsis to the reply body.
+   The enhanced body must be allowed to grow so the complete local
+   translation remains readable and the metadata/translate button stays in
+   the flow below it. */
+[data-bce-message-row="true"],
+[data-bce-message-content="true"] {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+
+[data-bce-message-content="true"] {
+  display: block !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+}
+
+/* Keep Bilibili's Vue-owned reply DOM intact while an extension-owned
+   sibling displays the translation. The source must not occupy layout. */
+[data-bce-original-comment-hidden="true"] {
+  display: none !important;
+}
+
+.bce-manual-translation-content {
+  color: inherit !important;
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+}
+
+.bce-manual-translation-content[data-bce-display="block"] { display: block !important; }
+.bce-manual-translation-content[data-bce-display="inline"] { display: inline !important; }
+
+.bce-time-group {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.bce-translate-comment {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: inherit !important;
+  font: inherit !important;
+  letter-spacing: normal !important;
+  cursor: pointer;
+}
+
+.bce-translate-comment:hover,
+.bce-translate-comment:focus-visible {
+  color: #00aeec !important;
+}
+
+.bce-translate-comment:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.bce-translate-comment[data-bce-translating="true"] .bce-translation-icon {
+  animation: bce-translation-pulse 1s ease-in-out infinite;
+}
+
+@keyframes bce-translation-pulse {
+  0%, 100% { opacity: .45; transform: translateY(3px) scale(.92); }
+  50% { opacity: 1; transform: translateY(3px) scale(1); }
+}
+
+.bce-title-translation-holder {
+  display: inline-flex !important;
+  align-items: center;
+  flex: 0 0 auto !important;
+  max-width: max-content;
+  margin-inline-start: 8px !important;
+  vertical-align: middle;
+  line-height: 1;
+  white-space: nowrap !important;
+  pointer-events: auto !important;
+}
+
+/* Long translated titles wrap inside the flexible text column; the icon
+   remains a separate non-shrinking flex item and therefore stays clickable. */
+.bce-title-translation-target {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: flex-start !important;
+  gap: 2px 8px;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+  text-overflow: clip !important;
+}
+
+.bce-title-translation-text {
+  display: block !important;
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+}
+
+/* Bilibili's video-info wrappers can keep a one-line fixed height and clip
+   their children. When a translated title grows, let that wrapper grow in
+   normal document flow so the player and metadata below move down with it. */
+.bce-title-flow-expanded {
+  height: auto !important;
+  min-height: max-content !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.bce-translation-icon {
+  display: block;
+  width: 17px;
+  height: 17px;
+  position: relative;
+  top: 3px;
+  transform: none;
+  object-fit: contain;
+  filter: invert(54%) sepia(89%) saturate(2496%) hue-rotate(165deg) brightness(95%) contrast(101%);
+}
+
+.bce-comment-translation {
+  display: block !important;
+  width: 100%;
+  margin: 5px 0 0 !important;
+  padding: 0 !important;
+  color: var(--bce-meta-fg) !important;
+  font: 400 13px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+}
+
+.bce-translation-label {
+  margin-inline-end: 6px;
+  opacity: 0.72;
+}
+
+.bce-translation-status {
+  opacity: 0.72;
+}
+
+.bce-translation-error {
+  color: #e34d59 !important;
+}
+
+.bce-translation-text {
+  white-space: pre-wrap;
+}
+
+.bce-location-unavailable {
+  opacity: 0.72;
+}
+
+.bce-original-time-hidden {
+  display: none !important;
+}
+
+/* Bilibili owns this Vue component and expects it to remain mounted. Hiding
+   only the exact ad card keeps the surrounding right column, comments and
+   action controls inside the site's own virtual-DOM tree intact. */
+#mirror-vdcon > div.right-container > div > div.video-pod-above-modules > div > div.video-card-ad-small {
+  display: none !important;
+}
+
+html.bce-custom-banner-active .bce-custom-banner-target {
+  position: relative !important;
+  height: var(--bce-banner-height, 180px) !important;
+  min-height: var(--bce-banner-height, 180px) !important;
+  background-color: #17181a !important;
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, var(--bce-banner-dim, 0)),
+      rgba(0, 0, 0, var(--bce-banner-dim, 0))
+    ),
+    var(--bce-banner-image) !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+/* Remove only Bilibili's visual banner layers. Header navigation, search,
+   account controls and the logo live outside these layer containers. */
+html.bce-custom-banner-active .bce-custom-banner-target .animated-banner,
+html.bce-custom-banner-active .bce-custom-banner-target .header-banner__layer,
+html.bce-custom-banner-active .bce-custom-banner-target .bili-header__layer,
+html.bce-custom-banner-active .bce-custom-banner-target > picture,
+html.bce-custom-banner-active .bce-custom-banner-target > img,
+html.bce-custom-banner-active .bce-custom-banner-target > video,
+html.bce-custom-banner-active .bce-custom-banner-target > canvas {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* The large left brand mark is a redundant homepage link whether or not a
+   custom image is currently active. Leave the ordinary navigation entries
+   (including Home) intact. */
+html.bce-hide-home-logo .bili-header__logo,
+html.bce-hide-home-logo #biliMainHeader .bili-header__logo,
+html.bce-hide-home-logo .bili-header__banner .bili-header__logo,
+html.bce-hide-home-logo [data-bce-home-logo],
+html.bce-hide-home-logo .bili-header a[class*="logo" i],
+html.bce-hide-home-logo #biliMainHeader a[class*="logo" i],
+html.bce-hide-home-logo a[class*="logo" i],
+html.bce-hide-home-logo header a[class*="logo" i],
+html.bce-hide-home-logo header a[aria-label*="bilibili" i],
+html.bce-hide-home-logo a[href="//www.bilibili.com/"],
+html.bce-hide-home-logo a[href="https://www.bilibili.com/"],
+html.bce-hide-home-logo header a[href$="bilibili.com/" i],
+html.bce-hide-home-logo header a[href$="bilibili.com" i] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bce-comment-meta,
+  .bce-message-meta,
+  .bce-comment-translation {
+    --bce-meta-fg: #a2a7ae;
+  }
+}

@@ -1,0 +1,128 @@
+.notices-page {
+  min-height: 100vh;
+}
+
+.notices-page .topbar {
+  padding-right: max(28px, calc((100vw - 940px) / 2));
+  padding-left: max(28px, calc((100vw - 940px) / 2));
+}
+
+.notices-shell {
+  width: min(900px, calc(100% - 40px));
+  margin: 42px auto 70px;
+}
+
+.notices-hero {
+  margin-bottom: 18px;
+  padding: 8px 4px 16px;
+}
+
+.notices-hero h1 {
+  margin: 5px 0 9px;
+  font-size: clamp(26px, 4vw, 38px);
+  letter-spacing: -0.03em;
+}
+
+.notices-hero > p:last-child {
+  max-width: 720px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.notice-card {
+  margin-top: 14px;
+  padding: 24px 27px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 34px rgba(41, 47, 76, 0.05);
+}
+
+.notice-card h2 {
+  margin: 0 0 11px;
+  font-size: 17px;
+}
+
+.notice-card h3 {
+  margin: 0;
+  font-size: 13px;
+}
+
+.notice-card p,
+.notice-card li {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.notice-card a {
+  color: #008fc4;
+  text-decoration: none;
+}
+
+.notice-card a:hover,
+.notice-card a:focus-visible {
+  text-decoration: underline;
+}
+
+.notice-card code {
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: #a94c70;
+  background: #fff0f5;
+  font-family: Consolas, monospace;
+  font-size: 11px;
+}
+
+.notice-list {
+  display: grid;
+  gap: 13px;
+}
+
+.notice-list article {
+  padding: 13px 15px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: #fbfcfe;
+}
+
+.notice-list article p {
+  margin-top: 4px;
+}
+
+.notice-card ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.notices-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 23px 4px 0;
+  color: #8a90a1;
+  font-size: 11px;
+}
+
+.notices-footer a {
+  color: #d7547d;
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .notices-shell {
+    width: min(100% - 24px, 900px);
+    margin-top: 24px;
+  }
+
+  .notice-card {
+    padding: 20px 18px;
+  }
+
+  .notices-footer {
+    flex-direction: column;
+  }
+}

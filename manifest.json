@@ -1,0 +1,66 @@
+{
+  "manifest_version": 3,
+  "name": "BiliIP+",
+  "short_name": "BiliIP+",
+  "version": "1.0.0",
+  "description": "Bilibili 页面信息与体验增强工具，提供公开 IP 属地、时间、按需翻译和自定义横幅。",
+  "permissions": [
+    "storage",
+    "unlimitedStorage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "打开 BiliIP+ 设置",
+    "default_icon": {
+      "16": "assets/icons/icon-16.png",
+      "32": "assets/icons/icon-32.png",
+      "48": "assets/icons/icon-48.png",
+      "128": "assets/icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "32": "assets/icons/icon-32.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://bilibili.com/*",
+        "https://*.bilibili.com/*"
+      ],
+      "js": [
+        "content/region-data.js",
+        "content/bili-english-expanded-dictionary.js",
+        "content/bili-english-dictionary.js",
+        "content/content.js"
+      ],
+      "css": [
+        "content/content.css"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "content/page-bridge.js",
+        "assets/icons/google-translate.svg"
+      ],
+      "matches": [
+        "https://bilibili.com/*",
+        "https://*.bilibili.com/*"
+      ]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>BiliIP+ · 设置</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <div class="page-glow page-glow--one" aria-hidden="true"></div>
+    <div class="page-glow page-glow--two" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#mainContent" aria-label="前往设置内容">
+        <span class="brand-mark" aria-hidden="true"><span>哔</span></span>
+        <span>
+          <strong>BiliIP+</strong>
+          <small>评论与横幅设置</small>
+        </span>
+      </a>
+      <div class="topbar-meta">
+        <label class="ui-language-select" for="settingsLanguage">
+          <span>界面语言</span>
+          <select id="settingsLanguage" aria-label="界面语言">
+            <option value="zh-CN">简体中文</option>
+            <option value="en">English</option>
+          </select>
+        </label>
+        <span class="local-badge"><i aria-hidden="true"></i>全部数据仅保存在本机</span>
+        <span class="version-badge">v1.0.0</span>
+      </div>
+    </header>
+
+    <main id="mainContent" class="app-shell">
+      <aside class="intro-panel">
+        <nav class="section-nav" aria-label="设置页面导航">
+          <a href="#commentsSection"><span>01</span>评论增强</a>
+          <a href="#languageSection"><span>02</span>B 站页面语言</a>
+          <a href="#bannerSection"><span>03</span>首页横幅</a>
+          <a href="#privacySection"><span>04</span>隐私说明</a>
+        </nav>
+
+      </aside>
+
+      <div class="settings-column">
+        <section id="commentsSection" class="settings-card">
+          <div class="section-heading">
+            <div class="section-icon section-icon--comment" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <div>
+              <p class="eyebrow">COMMENTS</p>
+              <h2>评论增强</h2>
+              <p>在原评论信息旁补充 B 站公开数据，不请求第三方定位服务。</p>
+            </div>
+          </div>
+
+          <label class="master-toggle" for="commentsEnabled">
+            <span class="master-copy">
+              <strong>启用评论增强</strong>
+              <small>总开关关闭后，下方设置暂时不会应用</small>
+            </span>
+            <span class="switch">
+              <input id="commentsEnabled" type="checkbox">
+              <span class="switch-track" aria-hidden="true"></span>
+            </span>
+          </label>
+
+          <div id="commentControls" class="control-body">
+            <div class="option-grid">
+              <label class="option-tile" for="showLocation">
+                <span class="option-copy">
+                  <strong>显示 IP 属地</strong>
+                  <small>仅显示 B 站接口公开返回的位置</small>
+                </span>
+                <span class="switch switch--small">
+                  <input id="showLocation" type="checkbox">
+                  <span class="switch-track" aria-hidden="true"></span>
+                </span>
+              </label>
+
+              <label class="option-tile" for="showExactTime">
+                <span class="option-copy">
+                  <strong>显示精确时间</strong>
+                  <small>24 小时制，精确到秒</small>
+                </span>
+                <span class="switch switch--small">
+                  <input id="showExactTime" type="checkbox">
+                  <span class="switch-track" aria-hidden="true"></span>
+                </span>
+              </label>
+            </div>
+
+            <div class="subsection">
+              <div class="subsection-title">
+                <div>
+                  <h3>时间与格式</h3>
+                  <p>当天评论显示每秒更新的相对时间；昨天与更早评论按日期、时间分开显示。</p>
+                </div>
+                <output id="timePreview" class="time-preview" aria-label="当前时间格式预览">--/--/---- --.--.--</output>
+              </div>
+
+              <fieldset class="segmented-fieldset">
+                <legend>显示时区</legend>
+                <div class="segmented-control">
+                  <label for="timezoneShanghai">
+                    <input id="timezoneShanghai" name="timezone" type="radio" value="Asia/Shanghai">
+                    <span><strong>北京时间</strong><small>固定 UTC+8</small></span>
+                  </label>
+                  <label for="timezoneLocal">
+                    <input id="timezoneLocal" name="timezone" type="radio" value="local">
+                    <span><strong>浏览器本地时间</strong><small>跟随系统时区</small></span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <label class="time-format-control" for="timeFormat">
+                <span>时间格式</span>
+                <select id="timeFormat" aria-label="时间格式">
+                  <option value="dd/mm/yyyy hh.mm.ss">dd/mm/yyyy hh.mm.ss</option>
+                  <option value="yyyy/mm/dd hh:mm:ss">yyyy/mm/dd hh:mm:ss</option>
+                  <option value="mm/dd/yyyy hh:mm:ss">mm/dd/yyyy hh:mm:ss</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="subsection location-policy">
+              <div>
+                <h3>缺失属地的处理</h3>
+                <p>旧评论、部分账号或接口限制可能导致属地为空。</p>
+              </div>
+              <label class="inline-toggle" for="showUnavailableLocation">
+                <span>显示“IP: 未提供”</span>
+                <span class="switch switch--small">
+                  <input id="showUnavailableLocation" type="checkbox">
+                  <span class="switch-track" aria-hidden="true"></span>
+                </span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section id="languageSection" class="settings-card language-card">
+          <div class="section-heading">
+            <div class="section-icon section-icon--language" aria-hidden="true"><span>A</span></div>
+            <div>
+              <p class="eyebrow">LOCAL TRANSLATION</p>
+              <h2>B 站页面语言</h2>
+              <p>用本地固定词典翻译 B 站常见界面；评论正文只会在你点击按钮后由 Edge 在本机处理。</p>
+            </div>
+          </div>
+
+          <div class="language-body">
+            <fieldset class="segmented-fieldset">
+              <legend>应用到 B 站的语言</legend>
+              <div class="segmented-control">
+                <label for="pageLanguageChinese">
+                  <input id="pageLanguageChinese" name="pageLanguage" type="radio" value="zh-CN">
+                  <span><strong>中文（不翻译 B 站界面）</strong><small>保留 B 站原始中文</small></span>
+                </label>
+                <label for="pageLanguageEnglish">
+                  <input id="pageLanguageEnglish" name="pageLanguage" type="radio" value="en">
+                  <span><strong>English（本地词典）</strong><small>翻译常见固定界面文字</small></span>
+                </label>
+              </div>
+            </fieldset>
+            <label class="option-tile translation-toggle" for="translationEnabled">
+              <span class="option-copy">
+                <strong>启用手动翻译</strong>
+                <small>关闭后不显示翻译图标，也不会处理任何翻译请求。</small>
+              </span>
+              <span class="switch switch--small">
+                <input id="translationEnabled" type="checkbox">
+                <span class="switch-track" aria-hidden="true"></span>
+              </span>
+            </label>
+            <div class="translation-settings">
+              <div>
+                <h3>评论按需翻译</h3>
+                <p>评论默认保持原文。点击评论下方的“文⇄A 翻译”后，Edge 会在本机翻译到所选语言；首次使用某个语言对时，浏览器可能下载本地模型。</p>
+              </div>
+              <label for="commentTranslationTarget">
+                <span>评论翻译目标语言</span>
+                <select id="commentTranslationTarget">
+                  <option value="en">English</option>
+                  <option value="zh">简体中文</option>
+                  <option value="ja">日本語</option>
+                  <option value="ko">한국어</option>
+                  <option value="fr">Français</option>
+                  <option value="de">Deutsch</option>
+                  <option value="es">Español</option>
+                  <option value="ru">Русский</option>
+                </select>
+              </label>
+            </div>
+            <p class="language-note">设置页语言、B 站页面语言和评论翻译目标彼此独立。标题、评论、私信和弹幕不会被自动翻译；本机翻译仅在你点击某条评论时运行，评论文字、IP 属地和设置不会上传给扩展服务。</p>
+          </div>
+        </section>
+
+        <section id="bannerSection" class="settings-card">
+          <div class="section-heading">
+            <div class="section-icon section-icon--image" aria-hidden="true">
+              <span></span>
+            </div>
+            <div>
+              <p class="eyebrow">HOMEPAGE BANNER</p>
+              <h2>首页横幅</h2>
+              <p>用一张静态图覆盖首页顶部动态景深横幅，鼠标移动时不再晃动。</p>
+            </div>
+          </div>
+
+          <label class="master-toggle" for="bannerEnabled">
+            <span class="master-copy">
+              <strong>启用自定义横幅</strong>
+              <small>关闭后恢复 B 站原始横幅</small>
+            </span>
+            <span class="switch">
+              <input id="bannerEnabled" type="checkbox">
+              <span class="switch-track" aria-hidden="true"></span>
+            </span>
+          </label>
+
+          <div id="bannerControls" class="control-body">
+            <div class="range-grid">
+              <label class="range-control" for="bannerHeight">
+                <span><strong>横幅高度</strong><output id="bannerHeightValue">180 px</output></span>
+                <input id="bannerHeight" type="range" min="120" max="280" step="4" value="180">
+              </label>
+              <label class="range-control" for="bannerDim">
+                <span><strong>暗化程度</strong><output id="bannerDimValue">0%</output></span>
+                <input id="bannerDim" type="range" min="0" max="60" step="1" value="0">
+              </label>
+            </div>
+
+            <div class="upload-workspace">
+              <div class="block-title">
+                <div>
+                  <h3>上传与裁切</h3>
+                  <p>支持 PNG、JPEG、WebP；适配 B 站 32:3 横幅，最终导出为 2560 × 240。</p>
+                </div>
+                <span class="ratio-badge">32 : 3</span>
+              </div>
+
+              <input id="bannerFileInput" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+
+              <div id="imageInfo" class="image-info" hidden>
+                <span class="file-dot" aria-hidden="true"></span>
+                <strong id="imageName">横幅图片</strong>
+                <span id="imageDimensions">—</span>
+                <span id="imageSize">—</span>
+              </div>
+
+              <div id="cropStage" class="crop-stage" role="button" tabindex="0" aria-controls="bannerFileInput" aria-label="上传或选择横幅图片">
+                <canvas id="cropCanvas" width="1280" height="120" aria-label="横幅裁切画布"></canvas>
+                <div class="crop-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+                <div id="cropEmpty" class="crop-empty">
+                  <span aria-hidden="true">＋</span>
+                  <strong>尚未选择图片</strong>
+                  <small>上传后可拖动平移并缩放裁切</small>
+                </div>
+                <span class="crop-size" aria-hidden="true">32:3 裁切区域</span>
+              </div>
+
+              <div class="crop-toolbar">
+                <label class="zoom-control" for="zoomRange">
+                  <span aria-hidden="true">−</span>
+                  <input id="zoomRange" type="range" min="1" max="4" step="0.01" value="1" disabled>
+                  <span aria-hidden="true">＋</span>
+                  <output id="zoomValue">100%</output>
+                </label>
+                <div class="button-group">
+                  <button id="resetCropButton" class="button button--ghost" type="button" disabled>复位裁切</button>
+                  <button id="deleteImageButton" class="button button--danger" type="button" disabled>删除图片</button>
+                </div>
+              </div>
+
+              <div class="export-settings">
+                <label for="outputFormat">
+                  <span>保存格式</span>
+                  <select id="outputFormat">
+                    <option value="image/webp">WebP（推荐，体积更小）</option>
+                    <option value="image/jpeg">JPEG（兼容性更好）</option>
+                  </select>
+                </label>
+                <label class="quality-control" for="outputQuality">
+                  <span>图片质量 <output id="outputQualityValue">86%</output></span>
+                  <input id="outputQuality" type="range" min="60" max="95" step="1" value="86">
+                </label>
+              </div>
+              <p class="export-note">保存时会在浏览器内完成裁切和压缩。图片不会离开这台设备，也不会上传到任何服务器。</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="privacySection" class="privacy-card">
+          <div class="privacy-icon" aria-hidden="true"><span></span></div>
+          <div>
+            <h2>隐私与数据说明</h2>
+            <p>设置和横幅图片仅写入 Edge 扩展的本地存储。扩展不收集、上传或出售任何数据；卸载扩展后，这些数据会由浏览器清除。</p>
+          </div>
+          <span class="privacy-tag">LOCAL ONLY</span>
+        </section>
+
+        <section class="legal-link-card" aria-labelledby="legalLinkHeading">
+          <div>
+            <p class="eyebrow">LEGAL &amp; LICENSES</p>
+            <h2 id="legalLinkHeading">免责声明与许可证</h2>
+            <p>项目授权、第三方资源来源、平台使用说明和非官方声明统一放在独立页面。</p>
+          </div>
+          <a class="legal-link" href="notices.html" target="_blank" rel="noopener">查看完整说明 <span aria-hidden="true">→</span></a>
+        </section>
+
+        <footer class="action-bar">
+          <div id="saveStatus" class="save-status" role="status" aria-live="polite">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span id="saveStatusText">正在读取设置…</span>
+          </div>
+          <div class="footer-actions">
+            <button id="restoreDefaultsButton" class="button button--ghost" type="button">恢复默认</button>
+            <button id="saveButton" class="button button--primary" type="button">
+              <span>保存并应用</span>
+              <i aria-hidden="true">→</i>
+            </button>
+          </div>
+        </footer>
+      </div>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+      <span id="toastIcon" aria-hidden="true">✓</span>
+      <span id="toastText">设置已保存</span>
+    </div>
+
+    <script src="i18n.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

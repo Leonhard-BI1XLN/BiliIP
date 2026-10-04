@@ -1,0 +1,89 @@
+{
+  "description": "Representative Bilibili reply payloads used by the dependency-free smoke tests.",
+  "cases": [
+    {
+      "name": "top-level reply with a public mainland location",
+      "reply": {
+        "rpid": 9007199254740991,
+        "ctime": 1728213337,
+        "member": {
+          "mid": "101",
+          "uname": "示例用户"
+        },
+        "reply_control": {
+          "location": "IP属地：广东"
+        },
+        "replies": []
+      },
+      "expected": {
+        "rpid": "9007199254740991",
+        "ctime": 1728213337,
+        "location": "广东"
+      }
+    },
+    {
+      "name": "nested reply with an overseas location",
+      "reply": {
+        "rpid_str": "18446744073709551615",
+        "ctime": "1728213338",
+        "member": {
+          "mid": "102",
+          "uname": "Nested"
+        },
+        "reply_control": {
+          "location": "IP属地：英国"
+        }
+      },
+      "expected": {
+        "rpid": "18446744073709551615",
+        "ctime": 1728213338,
+        "location": "英国"
+      }
+    },
+    {
+      "name": "reply whose API payload does not disclose a location",
+      "reply": {
+        "rpid": 123456789,
+        "ctime": 1728213339,
+        "member": {
+          "mid": "103",
+          "uname": "No location"
+        },
+        "reply_control": {}
+      },
+      "expected": {
+        "rpid": "123456789",
+        "ctime": 1728213339,
+        "location": ""
+      }
+    }
+  ],
+  "payload": {
+    "code": 0,
+    "data": {
+      "replies": [
+        {
+          "rpid": 9007199254740991,
+          "ctime": 1728213337,
+          "reply_control": {
+            "location": "IP属地：广东"
+          },
+          "replies": [
+            {
+              "rpid_str": "18446744073709551615",
+              "ctime": "1728213338",
+              "reply_control": {
+                "location": "IP属地：英国"
+              }
+            }
+          ]
+        },
+        {
+          "rpid": 123456789,
+          "ctime": 1728213339,
+          "reply_control": {}
+        }
+      ]
+    }
+  }
+}
